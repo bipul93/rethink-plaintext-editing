@@ -78,7 +78,6 @@ FilesTable.propTypes = {
 
 function Previewer({ file }) {
   const [value, setValue] = useState('');
-
   useEffect(() => {
     (async () => {
       setValue(await file.text());
@@ -99,8 +98,8 @@ Previewer.propTypes = {
 
 // Uncomment keys to register editors for media types
 const REGISTERED_EDITORS = {
-  // "text/plain": PlaintextEditor,
-  // "text/markdown": MarkdownEditor,
+  "text/plain": PlaintextEditor,
+  "text/markdown": MarkdownEditor,
 };
 
 function PlaintextFilesChallenge() {
@@ -116,6 +115,15 @@ function PlaintextFilesChallenge() {
     console.log('Writing soon... ', file.name);
 
     // TODO: Write the file to the `files` array
+
+    files.map((existingfile, index)=>{
+        console.log(existingfile.name)
+        if (existingfile.name == file.name){
+            files[index] = file
+            return
+        }
+    });
+    setActiveFile(file)
   };
 
   const Editor = activeFile ? REGISTERED_EDITORS[activeFile.type] : null;

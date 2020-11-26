@@ -9,7 +9,8 @@
     "lodash": "^4.17.19",
     "next": "^9.5.1",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "showdown": "^1.9.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
